@@ -79,7 +79,8 @@
             <div class="btn-group btn-group-lg">
                 <a class="btn btn-primary" href="estatus_ana.php" role="button">Estatus Análisis</a>
                 <a class="btn btn-primary" href="sol_analisis.php" role="button">Solicitar análisis</a>
-                <a class="btn btn-primary btn-lg active" aria-pressed="true" href="certificados.php" role="button">Certificados</a>
+                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="certificados.php" role="button">Certificados</a>
+                <a class="btn btn-primary" href="generar_c.php" role="button">Generar certificado</a>
             </div>
         </div>
     </div><br>

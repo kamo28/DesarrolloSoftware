@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    require "../header.php"
+?>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generar certificados</title>
 </head>
 <style>
@@ -21,18 +18,18 @@
     .hide-small{display:none!important}
     a{background-color:transparent;color: black;font-size: large;}a:active,a:hover{outline-width:0}
 </style>
-<body>
-
-    <div class="top">
-        <div class="bar white wide padding card">
-          <a class="bar-item button"><span class="glyphicon glyphicon-th-list"></span>Analista</a>
-          <div class="right ">
-            <a href="estatus_ana.php" class="bar-item button">Estatus Análisis</a>
-            <a href="sol_analisis.php" class="bar-item button">Solicitar Análisis</a>
-            <a href="certificados.php" class="bar-item button">Certificados</a>
-          </div>
+    <!-- Button group -->
+    <div class="container">
+        <div class='wrapper text-center'>
+            <div class="btn-group btn-group-lg">
+                <a class="btn btn-primary" href="estatus_ana.php" role="button">Estatus Análisis</a>
+                <a class="btn btn-primary" href="sol_analisis.php" role="button">Solicitar análisis</a>
+                <a class="btn btn-primary" href="certificados.php" role="button">Certificados</a>
+                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="generar_c.php" role="button">Generar certificado</a>
+            </div>
         </div>
-    </div>
+    </div><br>
+
     <div class="container" style="width: 95%;">
     <h3><strong>Generar Certificado</strong></h3>
     <form action="pdf.php" method="$_POST">
