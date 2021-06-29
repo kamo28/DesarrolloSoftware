@@ -1,9 +1,8 @@
-<!doctype html>
-<html lang="en">
+<?php
+    require "../header.php"
+?>
     <head>
-        <title>Cliente</title>
-
-        
+        <title>Alta/Baja de Cliente</title>
             <!-- Required meta tags -->
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,23 +10,29 @@
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body>
+    <!-- <body> -->
         <?php
-            $user ="root";
-            $password="root";
-            $host="localhost";
-            $port="3307";
-            $db="harina";
-            $link = mysqli_init();
-            $conn = mysqli_real_connect($link,$host,$user,$password,$db,$port);
+            // Crear una conexión
+            include '../conexion.php';
+            $con = OpenCon();
 
+            // Check connection
             if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
-            
-            $con=mysqli_connect($host,$user,$password,$db,$port);
         ?>
 
+        <!-- Button group -->
+        <div class="container">
+            <div class='wrapper text-center'>
+                <div class="btn-group btn-group-lg">
+                    <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="http://localhost:8888/DesarrolloSoftware/cliente/Cliente.php" role="button">Alta/Baja de clientes</a>
+                    <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/cliente/Modificar.php" role="button">Cambio de datos de clientes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
         <h1>Alta Cliente</h1>
         <form action="" method="post" class="needs-validation" novalidate>
             <div class="row">
@@ -222,10 +227,6 @@
                     </div>                    
                 </div>
 
-                <?php
-                    
-                ?>
-
             </div>
 
             <br>
@@ -274,20 +275,11 @@
                 }
             ?>
         </form>
-
-
-
-
-
-
-
+        </div>
 
 
         
-
-
-        
-
+        <br><br><br><div class="container">
         <form action="" method="post">
             <h1>Baja de cliente</h1>
             <div class="row">
@@ -331,7 +323,9 @@
               </tbody>
             </table>
         </form>
-
+        </div>
+        
+        <div class="container">
         <form action="" method="post" class="needs-validation" novalidate>
 
             <div class="row">
@@ -351,6 +345,7 @@
               $result_res1=mysqli_query($con,$query2);  
             ?>
         </form>
+        </div>
        
       </form>
 
