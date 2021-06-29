@@ -34,7 +34,7 @@
   <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="http://localhost:8888/DesarrolloSoftware/inicio.php">Logo</a>
+      <a class="navbar-brand" href="../inicio.php">Logo</a>
 
       <!-- Links -->
       <ul class="navbar-nav ml-auto">
@@ -43,13 +43,13 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <?php
               if ($_SESSION['rol'] == "Admin") {
-                echo '<a class="dropdown-item" href="http://localhost:8888/DesarrolloSoftware/Equipos/altaEquipo.php">Equipos de laboratorio</a>
-                <a class="dropdown-item" href="#">Clientes</a>
-                <a class="dropdown-item" href="http://localhost:8888/DesarrolloSoftware/Usuarios/altaUsuarios.php">Usuarios/Laboratoristas</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/Equipos/altaEquipo.php">Equipos de laboratorio</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/Clientes/Cliente.php">Clientes</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/Usuarios/altaUsuarios.php">Usuarios/Laboratoristas</a>';
               }elseif($_SESSION['rol'] == "Almacen"){
-                echo '<a class="dropdown-item" href="#">Clientes</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/cliente/Cliente.php">Clientes</a>';
               }elseif($_SESSION['rol'] == "Lab"){
-                echo '<a class="dropdown-item" href="http://localhost:8888/DesarrolloSoftware/Equipos/altaEquipo.php">Equipos de laboratorio</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/Equipos/altaEquipo.php">Equipos de laboratorio</a>';
               }
             ?>
           
@@ -90,7 +90,7 @@
         <?php
           if(isset($_SESSION['usuario'])) {
             echo '<li class="nav-item">
-                    <form role="form" action="logout.inc.php" method="post">
+                    <form role="form" action="../logout.inc.php" method="post">
                       <center><button type="submit" class="btn btn-info" name="logout-submit">Logout</button></center>
                     </form>
                   </li>';
