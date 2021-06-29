@@ -4,9 +4,14 @@
 <head>
     <title>Inicio - Harinas Elizondo</title>
 </head>
-    <div class="container">
-        <h3>Navbar With Dropdown</h3>
-        <p>This example adds a dropdown menu in the navbar.</p>
-    </div>
+<style>
+    body {
+        background-image: url('imagenes/harina1.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+</style>
 </body>
 </html>
