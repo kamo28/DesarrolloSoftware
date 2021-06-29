@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    require "../header.php"
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,29 +22,28 @@
     .hide-small{display:none!important}
     a{background-color:transparent;color: black;font-size: large;}a:active,a:hover{outline-width:0}
 </style>
-<body>
-<?php
- include("../conexion.php");
- // Check connection
- if (mysqli_connect_errno()) {
-   echo "Failed to connect to MySQL: " . mysqli_connect_error();
- }
-$error='<div class="alert alert-danger alert-dismissable">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
-<strong>NÚMERO DE LOTE VACIO!</strong></div>';
-$inex='<div class="alert alert-danger alert-dismissable">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
-<strong>NO HAY ANÁLISIS DEL LOTE, SOLICITA UN ANÁLISIS!</strong></div>';
+    <?php
+    include("../conexion.php");
+    // Check connection
+    if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    $error='<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>NÚMERO DE LOTE VACIO!</strong></div>';
+    $inex='<div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>NO HAY ANÁLISIS DEL LOTE, SOLICITA UN ANÁLISIS!</strong></div>';
 
-$enp='<div class="alert alert-warning alert-dismissable">
-<button type="button" class="close" data-dismiss="alert">&times;</button>
-<strong>ANALISIS EN PROCESO!</strong></div>';
-$action="htmlspecialchars($_SERVER[PHP_SELF])";
-$re=htmlspecialchars($_SERVER["PHP_SELF"]);
-$boton="";
-$dis="";
-$metodo="POST";
-$select="";
+    $enp='<div class="alert alert-warning alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>ANALISIS EN PROCESO!</strong></div>';
+    $action="htmlspecialchars($_SERVER[PHP_SELF])";
+    $re=htmlspecialchars($_SERVER["PHP_SELF"]);
+    $boton="";
+    $dis="";
+    $metodo="POST";
+    $select="";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(empty($_POST["lote"])){
             echo $error;
@@ -72,17 +72,18 @@ $select="";
         }
     }
     ?>
-    <div class="top">
-        <div class="bar white wide padding card">
-          <a href="inicio.html" class="bar-item button"><span class="glyphicon glyphicon-th-list"></span>Almacenista</a>
-          <div class="right ">
-          <a href="estatus_ana.php" class="bar-item button">Estatus Análisis</a>
-            <a href="sol_analisis.php" class="bar-item button">Solicitar Análisis</a>
-            <a href="#" class="bar-item button">Certificados</a>
-          </div>
+    
+    <!-- Button group -->
+    <div class="container">
+        <div class='wrapper text-center'>
+            <div class="btn-group btn-group-lg">
+                <a class="btn btn-primary" href="estatus_ana.php" role="button">Estatus Análisis</a>
+                <a class="btn btn-primary" href="sol_analisis.php" role="button">Solicitar análisis</a>
+                <a class="btn btn-primary btn-lg active" aria-pressed="true" href="certificados.php" role="button">Certificados</a>
+            </div>
         </div>
-    </div>
-    <br>
+    </div><br>
+
     <div class="container" style="width: 95%;">
         <form  method="<?php echo $metodo;?>" action="<?php echo $re;?>">
             <div class="form-group">

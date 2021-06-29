@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    require "../header.php"
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,18 +22,18 @@
     .hide-small{display:none!important}
     a{background-color:transparent;color: black;font-size: large;}a:active,a:hover{outline-width:0}
 </style>
-<body>
 
-    <div class="top">
-        <div class="bar white wide padding card">
-          <a class="bar-item button"><span class="glyphicon glyphicon-th-list"></span>Almacenista</a>
-          <div class="right ">
-            <a href="#" class="bar-item button">Estatus Análisis</a>
-            <a href="sol_analisis.php" class="bar-item button">Solicitar Análisis</a>
-            <a href="certificados.php" class="bar-item button">Generar Certificados</a>
-          </div>
+    <!-- Button group -->
+    <div class="container">
+        <div class='wrapper text-center'>
+            <div class="btn-group btn-group-lg">
+                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="estatus_ana.php" role="button">Estatus Análisis</a>
+                <a class="btn btn-primary" href="sol_analisis.php" role="button">Solicitar análisis</a>
+                <a class="btn btn-primary" href="certificados.php" role="button">Certificados</a>
+            </div>
         </div>
-    </div>
+    </div><br>
+
     <div class="container">
         <h3>Análisis Solicitados</h3>
         <table class="table">
@@ -46,21 +47,21 @@
             </thead>
             <tbody>
                 <?php
-                 include("../conexion.php");
-                if (mysqli_connect_errno()) {
-                  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                }
-                $sql="Select * from solicitud_analisis order by estatus ASC;";
-                $result= mysqli_query($con,$sql);
-                while($row = mysqli_fetch_array($result)) {
-                   $estado=$row['estatus'];
-                   if($estado=="en proceso"){
-                       echo "<tr class='alert alert-info'>"."<td>".$row['ID_cliente']."</td><td>".$row['ID_lote']."</td><td>".$row['estatus']."</td><td>".$row['f_emision']."</td></tr>";
-                   }
-                   else if ($estado=="finalizado"){
-                    echo "<tr class='alert alert-success'>"."<td>".$row['ID_cliente']."</td><td>".$row['ID_lote']."</td><td>".$row['estatus']."</td><td>".$row['f_emision']."</td></tr>";
-                   }
-                }
+                    include("../conexion.php");
+                    if (mysqli_connect_errno()) {
+                    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                    }
+                    $sql="Select * from solicitud_analisis order by estatus ASC;";
+                    $result= mysqli_query($con,$sql);
+                    while($row = mysqli_fetch_array($result)) {
+                    $estado=$row['estatus'];
+                    if($estado=="en proceso"){
+                        echo "<tr class='alert alert-info'>"."<td>".$row['ID_cliente']."</td><td>".$row['ID_lote']."</td><td>".$row['estatus']."</td><td>".$row['f_emision']."</td></tr>";
+                    }
+                    else if ($estado=="finalizado"){
+                        echo "<tr class='alert alert-success'>"."<td>".$row['ID_cliente']."</td><td>".$row['ID_lote']."</td><td>".$row['estatus']."</td><td>".$row['f_emision']."</td></tr>";
+                    }
+                    }
                 ?>
             </tbody>
         </table>
