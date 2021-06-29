@@ -8,8 +8,8 @@
     <div class="container">
         <div class='wrapper text-center'>
             <div class="btn-group btn-group-lg">
-                <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/Usuarios/altaUsuarios.php" role="button">Alta de usuarios/laboratoristas</a>
-                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="http://localhost:8888/DesarrolloSoftware/Usuarios/visualizarUsuarios.php" role="button">Visualizar usuarios</a>
+                <a class="btn btn-primary" href="/DesarrolloSoftware/Usuarios/altaUsuarios.php" role="button">Alta de usuarios/laboratoristas</a>
+                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="/DesarrolloSoftware/Usuarios/visualizarUsuarios.php" role="button">Visualizar usuarios</a>
             </div>
         </div>
     </div><br><br>

@@ -94,16 +94,6 @@
         $contraseña = mysqli_real_escape_string($con, $_POST['contraseña']);
         $rol = mysqli_real_escape_string($con, $_POST['rol']);
 
-        //Insertar a DB
-        // $sql = "INSERT INTO usuarios (Usuario, Contraseña, Rol) VALUES ('$usuario', '$contraseña', '$rol');";
-        // if (!mysqli_query($con,$sql)) {
-        //     die('<br>Error: ' . mysqli_error($con));
-        // }
-        // echo "<br>1 record added";
-        // mysqli_close($con);
-        // // ///////////////////////////////////////////////////
-        // echo "<script type='text/javascript'>window.top.location='http://localhost:8888/DesarrolloSoftware/Usuarios/altaUsuarios.php';</script>"; exit;
-
         $sql = "INSERT INTO usuarios (Usuario, Contraseña, Rol) VALUES (?,?,?)";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -113,7 +103,7 @@
             $hashedPwd = password_hash($contraseña, PASSWORD_DEFAULT);
             mysqli_stmt_bind_param($stmt, "sss", $usuario, $hashedPwd, $rol);
             mysqli_stmt_execute($stmt);
-            echo "<script type='text/javascript'>window.top.location='http://localhost:8888/DesarrolloSoftware/Usuarios/altaUsuarios.php';</script>"; exit;
+            echo "<script type='text/javascript'>window.top.location='/DesarrolloSoftware/Usuarios/altaUsuarios.php';</script>"; exit;
             mysqli_close($con);
         }
     }
