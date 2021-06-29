@@ -39,10 +39,10 @@
     <div class="container">
         <h2>Admin</h2>
         <div class="btn-group btn-group-lg">
-            <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/Equipos/altaEquipo.php" role="button">Alta de equipo de laboratorio</a>
-            <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/Equipos/modificarEquipo.php" role="button">Cambio de datos de equipo de laboratorio</a>
-            <a class="btn btn-primary btn-lg active" aria-pressed="true" href="http://localhost:8888/DesarrolloSoftware/Equipos/bajaEquipo.php" role="button">Cambiar estatus de equipo de laboratorio</a>
-            <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/Equipos/visualizarEquipos.php" role="button">Visualizar Equipos de laboratorio</a>
+            <a class="btn btn-primary" href="/DesarrolloSoftware/Equipos/altaEquipo.php" role="button">Alta de equipo de laboratorio</a>
+            <a class="btn btn-primary" href="/DesarrolloSoftware/Equipos/modificarEquipo.php" role="button">Cambio de datos de equipo de laboratorio</a>
+            <a class="btn btn-primary btn-lg active" aria-pressed="true" href="/DesarrolloSoftware/Equipos/bajaEquipo.php" role="button">Cambiar estatus de equipo de laboratorio</a>
+            <a class="btn btn-primary" href="/DesarrolloSoftware/Equipos/visualizarEquipos.php" role="button">Visualizar Equipos de laboratorio</a>
 
         </div>
     </div>
@@ -152,7 +152,7 @@
 
             //////////////////////////////////////////////////////
             mysqli_close($con);
-            echo "<script type='text/javascript'>window.top.location='http://localhost:8888/DesarrolloSoftware/Equipos/bajaEquipo.php';</script>"; exit;
+            echo "<script type='text/javascript'>window.top.location='/DesarrolloSoftware/Equipos/bajaEquipo.php';</script>"; exit;
         }   
             
     ?>

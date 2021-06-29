@@ -99,10 +99,10 @@
     <div class="container">
         <h2>Admin</h2>
         <div class="btn-group btn-group-lg">
-            <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="http://localhost:8888/DesarrolloSoftware/Equipos/altaEquipo.php" role="button">Alta de equipo de laboratorio</a>
-            <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/Equipos/modificarEquipo.php" role="button">Cambio de datos de equipo de laboratorio</a>
-            <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/Equipos/bajaEquipo.php" role="button">Cambiar estatus de equipo de laboratorio</a>
-            <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/Equipos/visualizarEquipos.php" role="button">Visualizar Equipos de laboratorio</a>
+            <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="/DesarrolloSoftware/Equipos/altaEquipo.php" role="button">Alta de equipo de laboratorio</a>
+            <a class="btn btn-primary" href="/DesarrolloSoftware/Equipos/modificarEquipo.php" role="button">Cambio de datos de equipo de laboratorio</a>
+            <a class="btn btn-primary" href="/DesarrolloSoftware/Equipos/bajaEquipo.php" role="button">Cambiar estatus de equipo de laboratorio</a>
+            <a class="btn btn-primary" href="/DesarrolloSoftware/Equipos/visualizarEquipos.php" role="button">Visualizar Equipos de laboratorio</a>
         </div>
     </div>
 
@@ -223,7 +223,7 @@
                     echo "<br>1 record added";
                     mysqli_close($con);
                     //////////////////////////////////////////////////////
-                    echo "<script type='text/javascript'>window.top.location='http://localhost:8888/DesarrolloSoftware/Equipos/altaEquipo.php';</script>"; exit;
+                    echo "<script type='text/javascript'>window.top.location='/DesarrolloSoftware/Equipos/altaEquipo.php';</script>"; exit;
                 }else{
                     echo '<br><br><div class="alert alert-warning alert-dismissable" ><button type="button" class="close" data-dismiss="alert"> &times;</button><strong>El responsable del equipo seleccionado no existe o no tiene los permisos necesarios</strong></div>';
                     //echo "<br>Error en la alta de datos del equipo: El responsable del equipo seleccionado no existe o no tiene los permisos necesarios";
