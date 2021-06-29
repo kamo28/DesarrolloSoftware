@@ -47,7 +47,7 @@
                 echo '<a class="dropdown-item" href="/DesarrolloSoftware/Clientes/Cliente.php">Clientes</a>';
                 echo '<a class="dropdown-item" href="/DesarrolloSoftware/Usuarios/altaUsuarios.php">Usuarios/Laboratoristas</a>';
               }elseif($_SESSION['rol'] == "Almacen"){
-                echo '<a class="dropdown-item" href="/DesarrolloSoftware/cliente/Cliente.php">Clientes</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/Clientes/Cliente.php">Clientes</a>';
               }elseif($_SESSION['rol'] == "Lab"){
                 echo '<a class="dropdown-item" href="/DesarrolloSoftware/Equipos/altaEquipo.php">Equipos de laboratorio</a>';
               }
