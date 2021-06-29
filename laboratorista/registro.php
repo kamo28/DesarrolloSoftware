@@ -25,7 +25,7 @@
 </style>
 <body>
 <?php 
-    $con = mysqli_connect("localhost","root","","harina");
+     include("../conexion.php");
     $id_lote=$_GET['lote'];
     $ana=$_GET['anali'];
     $id_cliente=$_GET['cliente'];
@@ -103,20 +103,30 @@
         <input type="text" class="form-control" name="ins" <?php echo $insp?> readonly>
         <label for="fecha"><h4>Fecha:</h4></label>
         <input type="datetime"class='form-control' name="fecha" value="<?php echo date("Y-m-d");?>" readonly>
-       <h1>hhh</h1>
+       <h1>PRUEBAS FISICOQUÍMICAS</h1>
+       <h2><u>Farinógrafo</u></h2>
+       <label for="absorcion"><h4> Absorción de agua (%):</h4></label>
+        <input type="text" class="form-control" name="absorcion" required>
+        <label for="tiempo"><h4>Tiempo de desarrollo (minutos):</h4></label>
+        <input type="text" class="form-control" name="tiempo" required>
+        <label for="estabilidad"><h4>Estabilidad (minutos):</h4></label>
+        <input type="text" class="form-control" name="estabilidad" required>
+        <label for="aflojamiento"><h4> Aflojamiento (UF):</h4></label>
+        <input type="text" class="form-control" name="aflojamiente" required>
+        <label for="quality"><h4> Quality Number:</h4></label>
+        <input type="text" class="form-control" name="quality" required>
+        <h2><u>Alveografo</u></h2>
+        <label for="tenacidad"><h4> Tenacidad(P mm):</h4></label>
+        <input type="text" class="form-control" name="tenacidad" required>
+        <label for="extensibilidad"><h4>Extensibilidad (L mm):</h4></label>
+        <input type="text" class="form-control" name="extensibilidad" required>
+        <label for="energia"><h4>Energía de la harina (W Jules):</h4></label>
+        <input type="text" class="form-control" name="energia" required>
+        <label for="curva"><h4>  Relación de la configuración de la curva (P/L):</h4></label>
+        <input type="text" class="form-control" name="curva" required>
+        <label for="elasticidad"><h4> Índice de elasticidad (I.E):</h4></label>
+        <input type="text" class="form-control" name="elasticidad" required>
         <?php
-        $sql="Select * from datos_analisis_cliente where ID_cliente='$id_cliente';";
-        $result= mysqli_query($con,$sql);
-        while($row = mysqli_fetch_array($result)) {
-            $clave_f=$row['Clave_factor'];
-
-            $sql2="Select * from parametros_lab where Clave_factor_analisis='$clave_f';";       
-            $result2= mysqli_query($con,$sql2);
-            while($row2 = mysqli_fetch_array($result2)){
-                echo " <label for='".$row2['Nombre_factor']."'><h4>".$row2['Nombre_factor']."(".$row2['Unidad_medida'].")</h4></label>";
-                echo " <input type='number' class='form-control' name='".$row2['Nombre_factor']."'>";
-            }
-        }
     }
     else{
         ?>
@@ -129,20 +139,30 @@
         <input type="text" class="form-control" name="ins" value="A" readonly>
         <label for="fecha"><h4>Fecha:</h4></label>
         <input type="datetime"class='form-control' name="fecha" value="<?php echo date("Y-m-d");?>" readonly>
+        <h1>PRUEBAS FISICOQUÍMICAS</h1>
+       <h2><u>Farinógrafo</u></h2>
+       <label for="absorcion"><h4> Absorción de agua (%):</h4></label>
+        <input type="text" class="form-control" name="absorcion" required>
+        <label for="tiempo"><h4>Tiempo de desarrollo (minutos):</h4></label>
+        <input type="text" class="form-control" name="tiempo" required>
+        <label for="estabilidad"><h4>Estabilidad (minutos):</h4></label>
+        <input type="text" class="form-control" name="estabilidad" required>
+        <label for="aflojamiento"><h4> Aflojamiento (UF):</h4></label>
+        <input type="text" class="form-control" name="aflojamiento" required>
+        <label for="quality"><h4> Quality Number:</h4></label>
+        <input type="text" class="form-control" name="quality" required>
+        <h2><u>Alveografo</u></h2>
+        <label for="tenacidad"><h4> Tenacidad(P mm):</h4></label>
+        <input type="text" class="form-control" name="tenacidad" required>
+        <label for="extensibilidad"><h4>Extensibilidad (L mm):</h4></label>
+        <input type="text" class="form-control" name="extensibilidad" required>
+        <label for="energia"><h4>Energía de la harina (W Jules):</h4></label>
+        <input type="text" class="form-control" name="energia" required>
+        <label for="curva"><h4>  Relación de la configuración de la curva (P/L):</h4></label>
+        <input type="text" class="form-control" name="curva" required>
+        <label for="elasticidad"><h4> Índice de elasticidad (I.E):</h4></label>
+        <input type="text" class="form-control" name="elasticidad" required>
         <?php
-        $sql="Select * from datos_analisis_cliente where ID_cliente='$id_cliente';";
-        $result= mysqli_query($con,$sql);
-        while($row = mysqli_fetch_array($result)) {
-            $clave_f=$row['Clave_factor'];
-
-            $sql2="Select * from parametros_lab where Clave_factor_analisis='$clave_f';";       
-            $result2= mysqli_query($con,$sql2);
-            while($row2 = mysqli_fetch_array($result2)){
-                $nombre=$row2['Clave_factor_analisis'];
-                echo " <label for='".$row2['Nombre_factor']."'><h4>".$row2['Nombre_factor']."(".$row2['Unidad_medida'].")</h4></label>";
-                echo " <input type='number' class='form-control' name='$nombre'required >";
-            }
-        }
     }
     ?>
     <br><h4><strong>PRUEBAS ORGANOLÉPTICAS</strong></h4>
@@ -155,7 +175,7 @@
     <label for="sabor"><h4>Sabor:</h4></label>
     <input type="text" class="form-control" name="sabor" required>
     <br><br>
-    <input type="submit" name="submit" value="Guardar resultados">
+    <input type="submit" name="submit" class="btn btn-dark" value="Guardar resultados">
   </form>
     </div>
     </body>

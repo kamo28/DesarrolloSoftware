@@ -51,7 +51,7 @@
             </thead>
             <tbody>
                 <?php
-                $con = mysqli_connect("localhost","root","","harina");
+                 include("../conexion.php");
                 if (mysqli_connect_errno()) {
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
                 }
@@ -70,13 +70,13 @@
                    }
                    if($estado=="en proceso"){
                         $input="<input type='radio' class='form-check-input' name='seleccion' value=".$row['ID_solicitud']." required>";
-                       echo "<tr class='danger'><td>".$row['ID_solicitud']."</td><td>".$row['ID_cliente']."</td><td>".$row['ID_lote']."</td><td>".$row['estatus']."</td><td>".$row['f_emision']."</td><td>".$urgencia."</td><td style='text-align: right;'>".$input."</td></tr>";
+                       echo "<tr class='alert alert-danger'><td>".$row['ID_solicitud']."</td><td>".$row['ID_cliente']."</td><td>".$row['ID_lote']."</td><td>".$row['estatus']."</td><td>".$row['f_emision']."</td><td>".$urgencia."</td><td style='text-align: right;'>".$input."</td></tr>";
                    }
                 }
                 ?>
             </tbody>
         </table>
-        <input type="submit" name="submit"value="Realizar análisis" style="text-align:center"<?php if($activar==null){echo "disabled";}?> >
+        <input type="submit" name="submit" class="btn btn-dark" value="Realizar análisis" style="text-align:center"<?php if($activar==null){echo "disabled";}?> >
         </form>
     </div>
     </body>

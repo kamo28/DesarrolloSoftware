@@ -36,7 +36,7 @@
     </div>
 <?php
     $id=$_GET['seleccion'];
-    $con = mysqli_connect("localhost","root","","harina");
+    include("../conexion.php");
     if (mysqli_connect_errno()) {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
@@ -71,7 +71,7 @@
         <input type="submit" name="submit" value="Registrar Análisis">
     </form><br>
     <form action="ana_solicitados.php">
-        <input type="submit" name="submit" value="Regresar">
+        <input type="submit" class="btn btn-dark" name="submit" value="Regresar">
         </form>
     </div>
     </body>
