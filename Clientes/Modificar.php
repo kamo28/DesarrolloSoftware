@@ -4,7 +4,6 @@
     <head>
         <title>Cambio datos cliente</title>
     </head>
-    <body>
         <?php
             // Crear una conexión
             include '../conexion.php';
@@ -22,6 +21,7 @@
                 <div class="btn-group btn-group-lg">
                     <a class="btn btn-primary" href="/DesarrolloSoftware/Clientes/Cliente.php" role="button">Alta/Baja de clientes</a>
                     <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="/DesarrolloSoftware/Clientes/Modificar.php" role="button">Cambio de datos de clientes</a>
+                    <a class="btn btn-primary" href="/DesarrolloSoftware/Clientes/visualizarClientes.php" role="button">Visualizar clientes</a>
                 </div>
             </div>
         </div>
