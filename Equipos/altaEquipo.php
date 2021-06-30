@@ -189,7 +189,7 @@
     <?php
         if(isset($_POST['submit']) && !empty($_POST["larga"]) && !empty($_POST["corta"]) && !empty($_POST["marca"]) && !empty($_POST["modelo"]) && !empty($_POST["serie"]) && !empty($_POST["proveedor"]) && !empty($_POST["adquisicion"]) && !empty($_POST["garantia"]) && isset($_POST["ubicacion"]) && isset($_POST["responsable"]) && isset($_POST["mantenimiento"]) && isset($_POST["estado"])){
             // Crear una conexión
-            include '../conexion.php';
+            include '../include/conexion.php';
             $con = OpenCon();
 
             // Check connection

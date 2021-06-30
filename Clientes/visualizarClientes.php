@@ -18,7 +18,7 @@
     <?php
     //----------------------------------------------------  SQL  -----------------------------------------------------------
     // Crear una conexión
-    include '../conexion.php';
+    include '../include/conexion.php';
     $con = OpenCon();
     // Check connection
     if (mysqli_connect_errno()) {
@@ -53,7 +53,7 @@
                         echo "<td>" . $equipos['Clave_docesp'] . "</td>";
                         if($equipos['Estado'] == 1){
                             echo "<td>Activo</td>";
-                        }elseif($equipos['Estado'] == 2){
+                        }elseif($equipos['Estado'] == 0){
                             echo "<td>Inactivo</td>";
                         }
                         echo "</tr>";

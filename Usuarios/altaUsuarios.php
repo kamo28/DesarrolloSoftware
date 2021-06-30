@@ -81,7 +81,7 @@
 <?php
     if(isset($_POST['submit']) && !empty($_POST["usuario"]) && !empty($_POST["contraseña"]) && !empty($_POST["rol"])){
         // Crear una conexión
-        include '../conexion.php';
+        include '../include/conexion.php';
         $con = OpenCon();
 
         // Check connection
@@ -103,7 +103,7 @@
             $hashedPwd = password_hash($contraseña, PASSWORD_DEFAULT);
             mysqli_stmt_bind_param($stmt, "sss", $usuario, $hashedPwd, $rol);
             mysqli_stmt_execute($stmt);
-            echo "<script type='text/javascript'>window.top.location='/DesarrolloSoftware/Usuarios/altaUsuarios.php';</script>"; exit;
+            echo "<script type='text/javascript'>window.top.location='http://localhost:8888/DesarrolloSoftware/Usuarios/altaUsuarios.php';</script>"; exit;
             mysqli_close($con);
         }
     }

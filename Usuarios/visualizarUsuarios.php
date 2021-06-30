@@ -17,7 +17,7 @@
     <?php
     //----------------------------------------------------  SQL  -----------------------------------------------------------
     // Crear una conexión
-    include '../conexion.php';
+    include '../include/conexion.php';
     $con = OpenCon();
     // Check connection
     if (mysqli_connect_errno()) {

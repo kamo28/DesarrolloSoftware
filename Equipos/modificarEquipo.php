@@ -110,7 +110,7 @@
     <?php
         if(isset($_POST['buscar']) && !empty($_POST["clave"])){
             // Crear una conexión
-            include '../conexion.php';
+            include '../include/conexion.php';
             $con = OpenCon();
             // Check connection
             if (mysqli_connect_errno()) {
@@ -236,7 +236,7 @@
     <?php
         if(isset($_POST['cambiar']) && !empty($_POST["clave"]) && !empty($_POST["larga"]) && !empty($_POST["corta"]) && !empty($_POST["marca"]) && !empty($_POST["modelo"]) && !empty($_POST["serie"]) && !empty($_POST["proveedor"]) && !empty($_POST["adquisicion"]) && !empty($_POST["garantia"]) && isset($_POST["ubicacion"]) && isset($_POST["responsable"]) && isset($_POST["mantenimiento"])){
             // Crear una conexión
-            include '../conexion.php';
+            include '../include/conexion.php';
             $con = OpenCon();
             // Check connection
             if (mysqli_connect_errno()) {

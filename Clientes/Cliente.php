@@ -7,7 +7,7 @@
     <!-- <body> -->
         <?php
             // Crear una conexión
-            include '../conexion.php';
+            include '../include/conexion.php';
             $con = OpenCon();
 
             // Check connection

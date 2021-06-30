@@ -50,7 +50,7 @@
     <?php
         if(isset($_POST['buscar']) && !empty($_POST["clave"])){
             // Crear una conexión
-            include '../conexion.php';
+            include '../include/conexion.php';
             $con = OpenCon();
             // Check connection
             if (mysqli_connect_errno()) {
@@ -124,7 +124,7 @@
     <?php
         if(isset($_POST['cambiar']) && !empty($_POST["clave"]) && isset($_POST["estado"])){
             // Crear una conexión
-            include '../conexion.php';
+            include '../include/conexion.php';
             $con = OpenCon();
             // Check connection
             if (mysqli_connect_errno()) {
@@ -134,7 +134,7 @@
             }
 
             //Modificar a DB
-            $sql = "UPDATE DatosGen_Lab SET Estado = '$estado' WHERE Clave_equipo = '$clave';";
+            $sql = "UPDATE datosgen_lab SET Estado = '$estado' WHERE Clave_equipo = '$clave';";
             if (!mysqli_query($con,$sql)) {
                 die('<br>Error: ' . mysqli_error($con));
             }
@@ -143,7 +143,7 @@
 
 
             //Baja de la db
-            $sql = "DELETE FROM DatosGen_Lab WHERE Clave_equipo = '$clave' AND Estado = '3';";
+            $sql = "DELETE FROM datosgen_lab WHERE Clave_equipo = '$clave' AND Estado = '3';";
             if (!mysqli_query($con,$sql)) {
                 die('<br>Error: ' . mysqli_error($con));
             }
