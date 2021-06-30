@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    require "../header.php"
+?>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitudes de análisis</title>
 </head>
 <style>
@@ -23,18 +18,18 @@
     .hide-small{display:none!important}
     a{background-color:transparent;color: black;font-size: large;}a:active,a:hover{outline-width:0}
 </style>
-<body>
 
-    <div class="top">
-        <div class="bar white wide padding card">
-          <a href="inicio.html" class="bar-item button"><span class="glyphicon glyphicon-signal"></span>Laboratorista</a>
-          <div class="right ">
-          <a href="#" class="bar-item button">Clientes</a>
-            <a href="#" class="bar-item button">Equipo de laboratorio</a>
-            <a href="ana_solicitados.php" class="bar-item button">Analisis Solicitados</a>
-          </div>
+    <!-- Button group -->
+    <div class="container">
+        <div class='wrapper text-center'>
+            <div class="btn-group btn-group-lg">
+                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="ana_solicitados.php" role="button">Análisis solicitados</a>
+                <a class="btn btn-primary" href="analisis.php" role="button">Análisis</a>
+                <a class="btn btn-primary" href="registro.php" role="button">Registro</a>
+            </div>
         </div>
-    </div>
+    </div><br>
+
     <div class="container">
         <h3>Análisis Solicitados</h3>
         <form  method="GET" action="analisis.php"> 
@@ -51,7 +46,7 @@
             </thead>
             <tbody>
                 <?php
-                 include("../conexion.php");
+                 include("../include/conexion.php");
                 if (mysqli_connect_errno()) {
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
                 }

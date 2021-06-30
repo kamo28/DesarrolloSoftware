@@ -13,7 +13,7 @@ $inex='<div class="alert alert-success alert-dismissable">
 <button type="button" class="close" data-dismiss="alert">&times;</button>
 <strong>ANÁLISIS INSERTADO CORRECTAMENTE!</strong></div>';
 $band=true;
-include("../conexion.php");
+include("../include/conexion.php");
 //guardar analisis
 $lote=$_GET['lote'];
 $band="true";
