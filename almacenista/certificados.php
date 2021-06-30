@@ -25,7 +25,7 @@
     <?php
     include("../include/conexion.php");
     $con = OpenCon();
-    
+
     // Check connection
     if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -80,7 +80,6 @@
         <div class='wrapper text-center'>
             <div class="btn-group btn-group-lg">
                 <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="certificados.php" role="button">Buscar resultados análisis</a>
-                <a class="btn btn-primary" href="generar_c.php" role="button">Generar certificado</a>
             </div>
         </div>
     </div><br>

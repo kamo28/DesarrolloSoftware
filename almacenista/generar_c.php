@@ -23,7 +23,6 @@
         <div class='wrapper text-center'>
             <div class="btn-group btn-group-lg">
                 <a class="btn btn-primary" href="certificados.php" role="button">Buscar resultados análisis</a>
-                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="generar_c.php" role="button">Generar certificado</a>
             </div>
         </div>
     </div><br>
@@ -36,7 +35,7 @@
         $cliente=$_GET['cliente'];
         include("../include/conexion.php");
         $con = OpenCon();
-        
+
         $solicitud="Select * from solicitud_analisis where ID_cliente=$cliente and ID_lote=$lote ORDER BY f_emision DESC;";
         $resultado= mysqli_query($con,$solicitud);
         $dato_sol = mysqli_fetch_array($resultado);
