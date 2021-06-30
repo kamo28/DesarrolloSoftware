@@ -22,9 +22,7 @@
     <div class="container">
         <div class='wrapper text-center'>
             <div class="btn-group btn-group-lg">
-                <a class="btn btn-primary" href="estatus_ana.php" role="button">Estatus Análisis</a>
-                <a class="btn btn-primary" href="sol_analisis.php" role="button">Solicitar análisis</a>
-                <a class="btn btn-primary" href="certificados.php" role="button">Certificados</a>
+                <a class="btn btn-primary" href="certificados.php" role="button">Buscar resultados análisis</a>
                 <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="generar_c.php" role="button">Generar certificado</a>
             </div>
         </div>
@@ -36,7 +34,7 @@
     <?php
         $lote=$_GET['lote'];
         $cliente=$_GET['cliente'];
-        include("../conexion.php");
+        include("../include/conexion.php");
         $solicitud="Select * from solicitud_analisis where ID_cliente=$cliente and ID_lote=$lote ORDER BY f_emision DESC;";
         $resultado= mysqli_query($con,$solicitud);
         $dato_sol = mysqli_fetch_array($resultado);

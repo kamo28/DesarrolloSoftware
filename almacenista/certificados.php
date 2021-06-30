@@ -23,7 +23,7 @@
     a{background-color:transparent;color: black;font-size: large;}a:active,a:hover{outline-width:0}
 </style>
     <?php
-    include("../conexion.php");
+    include("../include/conexion.php");
     // Check connection
     if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -77,9 +77,7 @@
     <div class="container">
         <div class='wrapper text-center'>
             <div class="btn-group btn-group-lg">
-                <a class="btn btn-primary" href="estatus_ana.php" role="button">Estatus Análisis</a>
-                <a class="btn btn-primary" href="sol_analisis.php" role="button">Solicitar análisis</a>
-                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="certificados.php" role="button">Certificados</a>
+                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="certificados.php" role="button">Buscar resultados análisis</a>
                 <a class="btn btn-primary" href="generar_c.php" role="button">Generar certificado</a>
             </div>
         </div>
