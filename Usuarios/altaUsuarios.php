@@ -45,8 +45,8 @@
 <div class="container">
     <div class='wrapper text-center'>
         <div class="btn-group btn-group-lg">
-            <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="http://localhost:8888/DesarrolloSoftware/Usuarios/altaUsuarios.php" role="button">Alta de usuarios/laboratoristas</a>
-            <a class="btn btn-primary" href="http://localhost:8888/DesarrolloSoftware/Usuarios/visualizarUsuarios.php" role="button">Visualizar usuarios</a>
+            <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="/DesarrolloSoftware/Usuarios/altaUsuarios.php" role="button">Alta de usuarios/laboratoristas</a>
+            <a class="btn btn-primary" href="/DesarrolloSoftware/Usuarios/visualizarUsuarios.php" role="button">Visualizar usuarios</a>
         </div>
     </div>
 </div><br><br>
@@ -103,7 +103,7 @@
             $hashedPwd = password_hash($contraseña, PASSWORD_DEFAULT);
             mysqli_stmt_bind_param($stmt, "sss", $usuario, $hashedPwd, $rol);
             mysqli_stmt_execute($stmt);
-            echo "<script type='text/javascript'>window.top.location='http://localhost:8888/DesarrolloSoftware/Usuarios/altaUsuarios.php';</script>"; exit;
+            echo "<script type='text/javascript'>window.top.location='/DesarrolloSoftware/Usuarios/altaUsuarios.php';</script>"; exit;
             mysqli_close($con);
         }
     }
