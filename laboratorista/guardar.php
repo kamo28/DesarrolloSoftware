@@ -14,6 +14,7 @@ $inex='<div class="alert alert-success alert-dismissable">
 <strong>ANÁLISIS INSERTADO CORRECTAMENTE!</strong></div>';
 $band=true;
 include("../include/conexion.php");
+$con = OpenCon();
 //guardar analisis
 $lote=$_GET['lote'];
 $band="true";

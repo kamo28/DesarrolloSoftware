@@ -20,6 +20,7 @@
 </style>
     <?php 
      include("../include/conexion.php");
+     $con = OpenCon();
     $id_lote=$_GET['lote'];
     $ana=$_GET['anali'];
     $id_cliente=$_GET['cliente'];
