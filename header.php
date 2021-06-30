@@ -34,7 +34,7 @@
   <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="../inicio.php">Logo</a>
+      <a class="navbar-brand" href="http://localhost:8888/DesarrolloSoftware/inicio.php">Logo</a>
 
       <!-- Links -->
       <ul class="navbar-nav ml-auto">
@@ -90,7 +90,7 @@
         <?php
           if(isset($_SESSION['usuario'])) {
             echo '<li class="nav-item">
-                    <form role="form" action="../logout.inc.php" method="post">
+                    <form role="form" action="http://localhost:8888/DesarrolloSoftware/include/logout.inc.php" method="post">
                       <center><button type="submit" class="btn btn-info" name="logout-submit">Logout</button></center>
                     </form>
                   </li>';
