@@ -35,6 +35,8 @@
         $lote=$_GET['lote'];
         $cliente=$_GET['cliente'];
         include("../include/conexion.php");
+        $con = OpenCon();
+        
         $solicitud="Select * from solicitud_analisis where ID_cliente=$cliente and ID_lote=$lote ORDER BY f_emision DESC;";
         $resultado= mysqli_query($con,$solicitud);
         $dato_sol = mysqli_fetch_array($resultado);

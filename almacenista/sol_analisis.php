@@ -25,6 +25,7 @@
 
     <?php
     include("../include/conexion.php");
+    $con = OpenCon();
 
     // Check connection
     if (mysqli_connect_errno()) {
