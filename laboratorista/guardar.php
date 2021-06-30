@@ -36,16 +36,16 @@ $energia=$_GET['energia'];
 $curva=$_GET['curva'];
 $elasticidad=$_GET['elasticidad'];
 
-$insertar="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','absorcion de agua','$aspecto','-');";
-$insertar2="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','color','$color','-');";
-$insertar3="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','olor','$olor','-');";
-$insertar4="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','sabor','$sabor','-');";
+$insertar="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','aspecto','$aspecto','');";
+$insertar2="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','color','$color','');";
+$insertar3="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','olor','$olor','');";
+$insertar4="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','sabor','$sabor','');";
 //pruebas
 $insertar5="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','absorcion de agua','$absorcion','%');";
 $insertar6="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','tiempo de desarrollo','$absorcion','minutos');";
 $insertar7="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','estabilidad','$estabilidad','minutos');";
 $insertar8="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','aflojamiento','$aflojamiento','UF');";
-$insertar9="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','quality number','$quality','-');";
+$insertar9="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','quality number','$quality','');";
 $insertar10="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','tenacidad','$tenacidad','P mm');";
 $insertar11="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','extensibilidad','$extensibilidad','L mm');";
 $insertar12="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','energia de la harina','$energia','W Jules');";
