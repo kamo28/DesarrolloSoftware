@@ -61,11 +61,12 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <?php
               if ($_SESSION['rol'] == "Admin") {
-                echo '<a class="dropdown-item" href="#">Análisis de datos de producción</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/almacenista/estatus_ana.php">Solicitar/Checar análisis</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/laboratorista/ana_solicitados.php">Realizar/Guardar análisis</a>';
               }elseif($_SESSION['rol'] == "Almacen"){
-                echo 'Sin permisos necesarios para accesar';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/almacenista/estatus_ana.php">Solicitar/Checar análisis</a>';
               }elseif($_SESSION['rol'] == "Lab"){
-                echo '<a class="dropdown-item" href="#">Análisis de datos de producción</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/laboratorista/ana_solicitados.php">Realizar/Guardar análisis</a>';
               }
             ?>
           </div>
@@ -76,12 +77,16 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <?php
               if ($_SESSION['rol'] == "Admin") {
-                echo '<a class="dropdown-item" href="#">Emisión</a>
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/almacenista/certificados.php">Emisión de certificados</a>
+
                       <a class="dropdown-item" href="#">Estadísticas</a>';
+
               }elseif($_SESSION['rol'] == "Almacen"){
-                echo '<a class="dropdown-item" href="#">Emisión</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/almacenista/certificados.php">Emisión de certificados</a>';
               }elseif($_SESSION['rol'] == "Lab"){
+
                 echo '<a class="dropdown-item" href="#">Estadísticas</a>';
+                
               }
             ?>
           </div>
