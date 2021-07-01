@@ -24,8 +24,6 @@
         <div class='wrapper text-center'>
             <div class="btn-group btn-group-lg">
                 <a class="btn btn-primary" href="ana_solicitados.php" role="button">Análisis solicitados</a>
-                <a class="btn btn-primary btn-lg active"  aria-pressed="true" href="analisis.php" role="button">Análisis</a>
-                <a class="btn btn-primary" href="registro.php" role="button">Registro</a>
             </div>
         </div>
     </div><br>
