@@ -1,5 +1,5 @@
 <?php
-    require "include/header.php"
+    require "header.php"
 ?>
 <head>
     <title>Inicio - Harinas Elizondo</title>

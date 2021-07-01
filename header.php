@@ -34,7 +34,7 @@
   <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="http://localhost:8888/DesarrolloSoftware/inicio.php">Logo</a>
+      <a class="navbar-brand" href="http://localhost:8888/DesarrolloSoftware/inicio.php">Molinos del Atlántico</a>
 
       <!-- Links -->
       <ul class="navbar-nav ml-auto">
@@ -76,17 +76,10 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <?php
-              if ($_SESSION['rol'] == "Admin") {
-                echo '<a class="dropdown-item" href="/DesarrolloSoftware/almacenista/certificados.php">Emisión de certificados</a>
-
-                      <a class="dropdown-item" href="#">Estadísticas</a>';
-
-              }elseif($_SESSION['rol'] == "Almacen"){
+              if ($_SESSION['rol'] == "Admin" || $_SESSION['rol'] == "Almacen") {
                 echo '<a class="dropdown-item" href="/DesarrolloSoftware/almacenista/certificados.php">Emisión de certificados</a>';
               }elseif($_SESSION['rol'] == "Lab"){
-
-                echo '<a class="dropdown-item" href="#">Estadísticas</a>';
-                
+                echo "No cuenta con los permisos necesarios para acceder";
               }
             ?>
           </div>

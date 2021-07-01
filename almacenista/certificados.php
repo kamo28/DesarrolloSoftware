@@ -1,5 +1,5 @@
 <?php
-    require "../include/header.php"
+    require "../header.php"
 ?>
 <head>
     <meta charset="UTF-8">
