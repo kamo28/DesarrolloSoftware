@@ -119,8 +119,6 @@
         <input type="text" class="form-control" name="extensibilidad" required>
         <label for="energia"><h4>Energía de la harina (W Jules):</h4></label>
         <input type="text" class="form-control" name="energia" required>
-        <label for="curva"><h4>  Relación de la configuración de la curva (P/L):</h4></label>
-        <input type="text" class="form-control" name="curva" required>
         <label for="elasticidad"><h4> Índice de elasticidad (I.E):</h4></label>
         <input type="text" class="form-control" name="elasticidad" required>
         <?php
@@ -155,8 +153,6 @@
         <input type="text" class="form-control" name="extensibilidad" required>
         <label for="energia"><h4>Energía de la harina (W Jules):</h4></label>
         <input type="text" class="form-control" name="energia" required>
-        <label for="curva"><h4>  Relación de la configuración de la curva (P/L):</h4></label>
-        <input type="text" class="form-control" name="curva" required>
         <label for="elasticidad"><h4> Índice de elasticidad (I.E):</h4></label>
         <input type="text" class="form-control" name="elasticidad" required>
         <?php
