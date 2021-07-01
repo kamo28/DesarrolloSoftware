@@ -29,7 +29,7 @@
 
     <div class="container" style="width: 95%;">
     <h3><strong>Generar Certificado</strong></h3>
-    <form action="pdf.php" method="$_POST">
+    <form action="pdf.php" method="$_GET">
     <?php
         $lote=$_GET['lote'];
         $cliente=$_GET['cliente'];
@@ -81,8 +81,7 @@
      $organo="Select * from resultados where id_solicitud=$num_sol and ID_lote=$lote and Analisis='$num_i';";
      $resultados= mysqli_query($con,$organo);
      while($datos = mysqli_fetch_array($resultados)){
-        echo " <label for='".$datos['Nombre_analisis']."'><h4>".$datos['Nombre_analisis']."</h4></label><input type='text' class='form-control' name='aspecto' value='".$datos['resultado']."'readonly>";
-     }
+        echo " <label for='".$datos['Nombre_analisis']."'><h4>".$datos['Nombre_analisis']."</h4></label><input type='text' class='form-control' name='".$datos['Nombre_analisis']."' value='".$datos['resultado']." ".$datos['unidad']."'readonly>";     }
     ?>   <br><br>
     <input type="submit" class="btn btn-dark" name="submit"value="Generar PDF">
     <br>
