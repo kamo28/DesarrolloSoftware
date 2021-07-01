@@ -34,7 +34,7 @@
   <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
       <!-- Brand -->
-      <a class="navbar-brand" href="http://localhost:8888/DesarrolloSoftware/inicio.php">Logo</a>
+      <a class="navbar-brand" href="http://localhost:8888/DesarrolloSoftware/inicio.php">Molinos del Atlántico</a>
 
       <!-- Links -->
       <ul class="navbar-nav ml-auto">
