@@ -71,6 +71,14 @@
      $clientes="Select * from clientes where ID_cliente=$cliente;";
      $result= mysqli_query($con,$clientes);
      $datos_c = mysqli_fetch_array($result);
+
+
+
+    //  ESTO ES PARA ERICK Y CORREGIR LOS PARAMETROS EN EL PDF
+     $idparapdf = $datos_c['ID_cliente'];
+
+
+     
      echo " <label for='nombre'><h4>Nombre Completo</h4></label><input type='text' class='form-control' name='nombre' value='".$datos_c['Nombre_completo']."'readonly>";
      echo " <label for='RFC'><h4>RFC</h4></label><input type='text' class='form-control' name='RFC' value='".$datos_c['RFC']."'readonly>";
      echo " <label for='Domicilio'><h4>Domicilio</h4></label><input type='text' class='form-control' name='domicilio' value='".$datos_c['Domicilio']."'readonly>";
