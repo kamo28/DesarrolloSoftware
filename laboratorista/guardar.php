@@ -33,7 +33,7 @@ $quality=$_GET['quality'];
 $tenacidad=$_GET['tenacidad'];
 $extensibilidad=$_GET['extensibilidad'];
 $energia=$_GET['energia'];
-$curva=$_GET['curva'];
+$curva=$tenacidad/$extensibilidad;
 $elasticidad=$_GET['elasticidad'];
 
 $insertar="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','aspecto','$aspecto','');";
@@ -51,8 +51,6 @@ $insertar11="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','exte
 $insertar12="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','energia de la harina','$energia','W Jules');";
 $insertar13="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','Relación de la configuración de la curva','$curva','P/L');";
 $insertar14="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','Índice de elasticidad','$elasticidad','I.E.');";
-
-
 
 mysqli_query($con,$insertar);
 mysqli_query($con,$insertar2);
