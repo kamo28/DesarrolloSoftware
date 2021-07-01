@@ -227,6 +227,18 @@
 
                 $IDD = $_POST["IDD"];
 
+                if(($liminf_6 && $liminf_7) == 0){
+                    $ari1 = 0;
+                   
+                    $ari2 = $limsup_6 / $limsup_7;
+                   
+                }else{
+                    $ari1 = $liminf_6 / $liminf_7;
+                    
+                    $ari2 = $limsup_6 / $limsup_7;
+                  
+                }
+
                 $qu1 = "UPDATE datos_analisis_cliente set Limite_inf='$liminf_1',Limite_sup='$limsup_1' WHERE ID_cliente = '$IDD' AND Clave_factor = '1'";
                 $re1 =mysqli_query($con,$qu1); 
                 $qu2 = "UPDATE datos_analisis_cliente set Limite_inf='$liminf_2',Limite_sup='$limsup_2' WHERE ID_cliente = '$IDD' AND Clave_factor = '2'";
@@ -243,7 +255,7 @@
                 $re7 =mysqli_query($con,$qu7); 
                 $qu8 = "UPDATE datos_analisis_cliente set Limite_inf='$liminf_8',Limite_sup='$limsup_8' WHERE ID_cliente = '$IDD' AND Clave_factor = '8'";
                 $re8 =mysqli_query($con,$qu8); 
-                $qu9 = "UPDATE datos_analisis_cliente set Limite_inf='$liminf_9',Limite_sup='$limsup_9' WHERE ID_cliente = '$IDD' AND Clave_factor = '9'";
+                $qu9 = "UPDATE datos_analisis_cliente set Limite_inf='$ari1',Limite_sup='$ari2' WHERE ID_cliente = '$IDD' AND Clave_factor = '9'";
                 $re9 =mysqli_query($con,$qu9); 
                 $qu10 = "UPDATE datos_analisis_cliente set Limite_inf='$liminf_10',Limite_sup='$limsup_10' WHERE ID_cliente = '$IDD' AND Clave_factor = '10'";
                 $re10 =mysqli_query($con,$qu10); 
