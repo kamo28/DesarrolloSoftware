@@ -143,15 +143,15 @@
                         </div>  
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Quality" id="" value="<?php echo $Qua ?>">
+                            <input type="text" name="Quality" id="" value="<?php echo $Qua ?>" readonly>
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf5" id="" value="<?php echo $liminf5 ?>" required>                            
+                            <input type="text" name="liminf5" id="" value="<?php echo $liminf5 ?>" readonly required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup5" id="" value="<?php echo $limsup5 ?>">                               
+                            <input type="text" name="limsup5" id="" value="<?php echo $limsup5 ?>" readonly >                               
                         </div>                                                                                                                                          
                     </div>
                 </div>
@@ -201,11 +201,11 @@
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf9" id="" value="<?php echo $liminf9 ?>" required>                            
+                            <input type="text" name="liminf9" id="" value="<?php echo $liminf9 ?>" required readonly>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup9" id="" value="<?php echo $limsup9 ?>" required>                                
+                            <input type="text" name="limsup9" id="" value="<?php echo $limsup9 ?>" required readonly>                                
                         </div>  
                         <div class="col-4">
                             <label for="">Factor</label><br>
@@ -238,6 +238,20 @@
                     $limsup_1 = $_POST["limsup1"];$limsup_2 = $_POST["limsup2"];$limsup_3 = $_POST["limsup3"];$limsup_4 = $_POST["limsup4"];$limsup_5 = $_POST["limsup5"];$limsup_6 = $_POST["limsup6"];$limsup_7 = $_POST["limsup7"];$limsup_8 = $_POST["limsup8"];$limsup_9 = $_POST["limsup9"];$limsup_10 = $_POST["limsup10"];
 
 
+                    if(($liminf_6 && $liminf_7) == 0){
+                        $ari1 = 0;
+                       
+                        $ari2 = $limsup_6 / $limsup_7;
+                       
+                    }else{
+                        $ari1 = $liminf_6 / $liminf_7;
+                        
+                        $ari2 = $limsup_6 / $limsup_7;
+                      
+                    }
+
+
+
                     $query = "INSERT INTO clientes(Nombre_completo,RFC,Domicilio,Nombre_contacto,Clave_docesp,Estado) VALUES ('$nombre','$RFC','$Domicilio','$Contacto','$ClaveDoc','1')";  
                     $result_res0=mysqli_query($con,$query);
 
@@ -263,7 +277,7 @@
                             $result_res_7=mysqli_query($con,$query_7);
                     $query_8 = "INSERT INTO datos_analisis_cliente(ID_cliente,Clave_factor,Limite_inf,Limite_sup) VALUES ('$IDDD','8','$liminf_8','$limsup_8')";  
                             $result_res_8=mysqli_query($con,$query_8);
-                    $query_9 = "INSERT INTO datos_analisis_cliente(ID_cliente,Clave_factor,Limite_inf,Limite_sup) VALUES ('$IDDD','9','$liminf_9','$limsup_9')";  
+                    $query_9 = "INSERT INTO datos_analisis_cliente(ID_cliente,Clave_factor,Limite_inf,Limite_sup) VALUES ('$IDDD','9','$ari1','$ari2')";  
                             $result_res_9=mysqli_query($con,$query_9);
                     $query_10 = "INSERT INTO datos_analisis_cliente(ID_cliente,Clave_factor,Limite_inf,Limite_sup) VALUES ('$IDDD','10','$liminf_10','$limsup_10')";  
                             $result_res_10=mysqli_query($con,$query_10);
