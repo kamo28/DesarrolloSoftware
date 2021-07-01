@@ -48,12 +48,6 @@
 								</div>
 							</form>
 						</div>
-		
-						<div class="card-footer">
-							<div class="d-flex justify-content-center links">
-								Do not have an account?<a href="#">Sign Up</a>
-							</div>
-						</div>
 					</div>
 				</div>';
 		}
