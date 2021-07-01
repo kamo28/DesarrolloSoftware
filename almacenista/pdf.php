@@ -1,8 +1,21 @@
 <?php
 require('fpdf/fpdf.php');
 
-include("../include/conexion.php");
-$con = OpenCon();
+$user ="root";
+$password="root";
+$host="localhost";
+$port="3307";
+$db="harina";
+$link = mysqli_init();
+$conn = mysqli_real_connect($link,$host,$user,$password,$db,$port);
+
+if (mysqli_connect_errno()) {
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$con=mysqli_connect($host,$user,$password,$db,$port);
+
+
 
 class PDF extends FPDF
 {
@@ -70,67 +83,24 @@ $energia = $_GET["energia_de_la_harina"];
 $relacion = $_GET["Relación_de_la_configuración_de_la_curva"];
 $indice = $_GET["Índice_de_elasticidad"];
 
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 1";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a1 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 2";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a2 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 3";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a3 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 4";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a4 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 5";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a5 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 6";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a6 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 7";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a7 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 8";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a8 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 9";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a9 = $datos[0];}
-$query="SELECT Limite_inf from parametros_lab WHERE Clave_factor_analisis = 10";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$a10 = $datos[0];}
+$ID = $_GET["IDD"];
 
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 1";
+$query="SELECT Limite_inf from datos_analisis_cliente WHERE ID_cliente = $ID";
 $resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b1 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 2";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b2 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 3";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b3 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 4";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b4 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 5";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b5 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 6";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b6 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 7";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b7 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 8";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b8 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 9";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b9 = $datos[0];}
-$query="SELECT Limite_sup from parametros_lab WHERE Clave_factor_analisis = 10";
-$resultado= mysqli_query($con,$query);
-while($datos = mysqli_fetch_array($resultado)){$b10 = $datos[0];}
+$x=0;
+while($row = mysqli_fetch_array($resultado)){
+    $lim_inf[$x]=$row['Limite_inf'];
+    $x++;
+}
+
+$query1="SELECT Limite_sup from datos_analisis_cliente WHERE ID_cliente = $ID";
+$resultado1= mysqli_query($con,$query1);
+$y=0;
+while($row1 = mysqli_fetch_array($resultado1)){
+    $lim_sup[$y]=$row1['Limite_sup'];
+    $y++;
+}
+
 
 
 $pdf->CELL(90,5,utf8_decode('ORDEN	DE	COMPRA	NÚMERO:'),0,0,'L',0);
@@ -186,45 +156,45 @@ $pdf->Ln();
 $pdf->SetFont('Arial','B',9);
 $pdf->CELL(90,5,utf8_decode('ABSORCIÓN DE AGUA:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($absorcion),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a1.'-'.$b1),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[0].'-'.$lim_sup[0]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('TIEMPO DE DESARROLLO:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($tiempo),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a2.'-'.$b2),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[1].'-'.$lim_sup[1]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('ESTABILIDAD:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($estabilidad),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a3.'-'.$b3),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[2].'-'.$lim_sup[2]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('AFLOJAMIENTO:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($aflojamiento),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a4.'-'.$b4),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[3].'-'.$lim_sup[3]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('QUALITY NUMBER:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($quality),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a5.'-'.$b5),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[4].'-'.$lim_sup[4]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('TENACIDAD:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($tenacidad),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a6.'-'.$b6),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[5].'-'.$lim_sup[5]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('EXTENSIBILIDAD:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($extensibilidad),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a7.'-'.$b7),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[6].'-'.$lim_sup[6]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('ENERGIA DE LA HARINA:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($energia),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a8.'-'.$b8),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[7].'-'.$lim_sup[7]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('RELACION DE LA CONFIGURACION '),0,0,'L',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('DE LA CURVA:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($relacion),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a9.'-'.$b9),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[8].'-'.$lim_sup[8]),0,0,'C',0);
 $pdf->Ln();
 $pdf->CELL(90,5,utf8_decode('INDICE DE ELASTICIBIDAD:'),0,0,'L',0);
 $pdf->CELL(30,5,utf8_decode($indice),0,0,'C',0);
-$pdf->CELL(50,5,utf8_decode($a10.'-'.$b10),0,0,'C',0);
+$pdf->CELL(50,5,utf8_decode($lim_inf[9].'-'.$lim_sup[9]),0,0,'C',0);
 $pdf->Ln();
 
 //ancho,alto,txto, 
