@@ -1,5 +1,5 @@
 <?php
-    require "../header.php"
+    require "../include/header.php"
 ?>
     <head>
         <title>Alta/Baja de Cliente</title>
