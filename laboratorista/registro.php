@@ -52,7 +52,7 @@
             </thead>
             <tbody>
             <?php
-                $con = mysqli_connect("localhost","root","","harina");
+                //$con = mysqli_connect("localhost","root","","harina");
                 $solicitud=$_GET['solicitud'];
                 if (mysqli_connect_errno()) {
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
