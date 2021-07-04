@@ -52,106 +52,89 @@
                     <input type="text" name="ClaveDoc" class="form-control" required>
                 </div>
             </div>
-            <h2>Datos de analisis solicitados</h2>
-
                 <?php
-                    $query01 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 1";
-                        $result_res01=mysqli_query($con,$query01);  
-                            while ($row01 = mysqli_fetch_array($result_res01)) { $Abs = $row01[0]; $liminf1 = $row01[1]; $limsup1 = $row01[2]; }
-                    $query02 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 2";
-                        $result_res02=mysqli_query($con,$query02);  
-                            while ($row02 = mysqli_fetch_array($result_res02)) { $Tiempo = $row02[0]; $liminf2 = $row02[1]; $limsup2 = $row02[2]; }
-                    $query03 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 3";
-                        $result_res03=mysqli_query($con,$query03);  
-                            while ($row03 = mysqli_fetch_array($result_res03)) { $Estabilidad = $row03[0]; $liminf3 = $row03[1]; $limsup3 = $row03[2]; }
-                    $query04 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 4";
-                        $result_res04=mysqli_query($con,$query04);  
-                            while ($row04 = mysqli_fetch_array($result_res04)) { $Aflojamiento = $row04[0]; $liminf4 = $row04[1]; $limsup4 = $row04[2]; }
-                    $query05 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 5";
-                        $result_res05=mysqli_query($con,$query05);  
-                            while ($row05 = mysqli_fetch_array($result_res05)) { $Qua = $row05[0]; $liminf5 = $row05[1]; $limsup5 = $row05[2]; }
-                    $query06 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 6";
-                        $result_res06=mysqli_query($con,$query06);  
-                            while ($row06 = mysqli_fetch_array($result_res06)) { $Tenacidad = $row06[0]; $liminf6 = $row06[1]; $limsup6 = $row06[2]; }
-                    $query07 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 7";                    
-                        $result_res07=mysqli_query($con,$query07);  
-                            while ($row07 = mysqli_fetch_array($result_res07)) { $Extensibilidad = $row07[0]; $liminf7 = $row07[1]; $limsup7 = $row07[2]; }
-                    $query08 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 8";
-                        $result_res08=mysqli_query($con,$query08);  
-                            while ($row08 = mysqli_fetch_array($result_res08)) { $Energia = $row08[0]; $liminf8 = $row08[1]; $limsup8 = $row08[2]; }
-                    $query09 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 9";                    
-                        $result_res09=mysqli_query($con,$query09);  
-                            while ($row09 = mysqli_fetch_array($result_res09)) { $Relacion = $row09[0]; $liminf9 = $row09[1]; $limsup9 = $row09[2]; }
-                    $query10 = "SELECT Nombre_factor,Limite_inf,Limite_sup FROM parametros_lab WHERE Clave_factor_analisis = 10";
-                        $result_res10=mysqli_query($con,$query10);  
-                            while ($row10 = mysqli_fetch_array($result_res10)) { $Indice = $row10[0]; $liminf10 = $row10[1]; $limsup10 = $row10[2]; }
-
-
+                    $query = "SELECT * FROM parametros_lab";
+                        $result=mysqli_query($con,$query);  
+                            $x=0;
+                            while($row = mysqli_fetch_array($result)){
+                                $NombreFactor[$x]=$row['Nombre_factor'];
+                                $LimInf[$x]=$row['Limite_inf'];
+                                $LimSup[$x]=$row['Limite_sup'];
+                                $x++;
+                            }
                 ?>
 
+            <fieldset class="question">
+                <h3><label for="coupon_question">¿Quieres modificar los valores del analisis?</label></h3>
+                <input class="coupon_question" type="checkbox" name="coupon_question" value="1" />
+                <span class="item-text">SI/NO</span>
+            </fieldset>
+
+
+            <fieldset class="answer">
             <div class="row">
                 <div class="col-6">
                     <h4 class="text-center">Farinografo parámetros</h4>
                     <div class="row text-center">
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Absorcion" id="" value="<?php echo $Abs ?>" readonly>
+                            <input type="text" name="Absorcion" id="" value="<?php echo $NombreFactor[0] ?>" readonly>
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf1" id="" value="<?php echo $liminf1 ?>" required>                            
+                            <input type="text" name="liminf1" id="yourText" value="<?php echo $LimInf[0]?>" required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup1" id="" value="<?php echo $limsup1 ?>" required>                               
+                            <input type="text" name="limsup1" id="" value="<?php echo $LimSup[0] ?>" required>                               
                         </div>        
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Tiempo" id="" value="<?php echo $Tiempo ?>" readonly>
+                            <input type="text" name="Tiempo" id="" value="<?php echo $NombreFactor[1]?>" readonly>
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf2" id="" value="<?php echo $liminf2 ?>" required>                            
+                            <input type="text" name="liminf2" id="" value="<?php echo $LimInf[1] ?>" required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup2" id="" value="<?php echo $limsup2 ?>" required>                               
+                            <input type="text" name="limsup2" id="" value="<?php echo $LimSup[1] ?>" required>                               
                         </div>  
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Estabilidad" id="" value="<?php echo $Estabilidad ?>">
+                            <input type="text" name="Estabilidad" id="" value="<?php echo $NombreFactor[2] ?>">
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf3" id="" value="<?php echo $liminf3 ?>" required>                            
+                            <input type="text" name="liminf3" id="" value="<?php echo $LimInf[2] ?>" required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup3" id="" value="<?php echo $limsup3 ?>" required>                               
+                            <input type="text" name="limsup3" id="" value="<?php echo $LimSup[2] ?>" required>                               
                         </div>  
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Aflojamiento" id="" value="<?php echo $Aflojamiento ?>">
+                            <input type="text" name="Aflojamiento" id="" value="<?php echo $NombreFactor[3] ?>">
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf4" id="" value="<?php echo $liminf4 ?>" required>                            
+                            <input type="text" name="liminf4" id="" value="<?php echo $LimInf[3] ?>" required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup4" id="" value="<?php echo $limsup4 ?>" required>                                
+                            <input type="text" name="limsup4" id="" value="<?php echo $LimSup[3] ?>" required>                                
                         </div>  
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Quality" id="" value="<?php echo $Qua ?>" readonly>
+                            <input type="text" name="Quality" id="" value="<?php echo $NombreFactor[4] ?>" readonly>
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf5" id="" value="<?php echo $liminf5 ?>" readonly required>                            
+                            <input type="text" name="liminf5" id="" value="<?php echo $LimInf[4] ?>" readonly required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup5" id="" value="<?php echo $limsup5 ?>" readonly >                               
+                            <input type="text" name="limsup5" id="" value="<?php echo $LimSup[4] ?>" readonly >                               
                         </div>                                                                                                                                          
                     </div>
                 </div>
@@ -161,68 +144,69 @@
                     <div class="row text-center">
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Tenacidad" id="" value="<?php echo $Tenacidad ?>" readonly>
+                            <input type="text" name="Tenacidad" id="" value="<?php echo $NombreFactor[5] ?>" readonly>
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf6" id="" value="<?php echo $liminf6 ?>" required>                            
+                            <input type="text" name="liminf6" id="" value="<?php echo $LimInf[5] ?>" required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup6" id="" value="<?php echo $limsup6 ?>" required>                               
+                            <input type="text" name="limsup6" id="" value="<?php echo $LimSup[5] ?>" required>                               
                         </div>        
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Extensibilidad" id="" value="<?php echo $Extensibilidad ?>" readonly>
+                            <input type="text" name="Extensibilidad" id="" value="<?php echo $NombreFactor[6] ?>" readonly>
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf7" id="" value="<?php echo $liminf7 ?>" required>                            
+                            <input type="text" name="liminf7" id="" value="<?php echo $LimInf[6] ?>" required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup7" id="" value="<?php echo $limsup7 ?>" required>                               
+                            <input type="text" name="limsup7" id="" value="<?php echo $LimSup[6] ?>" required>                               
                         </div>  
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Energia" id="" value="<?php echo $Energia ?>">
+                            <input type="text" name="Energia" id="" value="<?php echo $NombreFactor[7] ?>">
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf8" id="" value="<?php echo $liminf8 ?>" required>                            
+                            <input type="text" name="liminf8" id="" value="<?php echo $LimInf[7] ?>" required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup8" id="" value="<?php echo $limsup8 ?>" required>                               
+                            <input type="text" name="limsup8" id="" value="<?php echo $LimSup[7] ?>" required>                               
                         </div>  
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Relacion" id="" value="<?php echo $Relacion ?>">
+                            <input type="text" name="Relacion" id="" value="<?php echo $NombreFactor[8] ?>">
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf9" id="" value="<?php echo $liminf9 ?>" required readonly>                            
+                            <input type="text" name="liminf9" id="" value="<?php echo $LimInf[8] ?>" required readonly>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup9" id="" value="<?php echo $limsup9 ?>" required readonly>                                
+                            <input type="text" name="limsup9" id="" value="<?php echo $LimSup[8] ?>" required readonly>                                
                         </div>  
                         <div class="col-4">
                             <label for="">Factor</label><br>
-                            <input type="text" name="Indice" id="" value="<?php echo $Indice ?>">
+                            <input type="text" name="Indice" id="" value="<?php echo $NombreFactor[9] ?>">
                         </div>
                         <div class="col-4">
                             <label for="">Limite inferior</label><br>
-                            <input type="text" name="liminf10" id="" value="<?php echo $liminf10 ?>" required>                            
+                            <input type="text" name="liminf10" id="" value="<?php echo $LimInf[9] ?>" required>                            
                         </div>
                         <div class="col-4">
                             <label for="">Limite superior</label><br>
-                            <input type="text" name="limsup10" id="" value="<?php echo $limsup10 ?>">                               
+                            <input type="text" name="limsup10" id="" value="<?php echo $LimSup[9] ?>">                               
                         </div>                                                                                                                                          
                     </div>                    
                 </div>
 
             </div>
+            </fieldset>
 
             <br>
             <button class="btn btn-primary" type="submit" name="submit">Enviar</button>
@@ -377,6 +361,15 @@
                 }, false)
               })
           })()
+
+          $(".answer").hide();
+            $(".coupon_question").click(function() {
+                if($(this).is(":checked")) {
+                    $(".answer").show();
+                } else {
+                    $(".answer").hide();
+                }
+            });
 
         </script>
     </body>
