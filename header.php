@@ -51,6 +51,7 @@
                 echo '<a class="dropdown-item" href="/DesarrolloSoftware/Clientes/Cliente.php">Clientes</a>';
               }elseif($_SESSION['rol'] == "Lab"){
                 echo '<a class="dropdown-item" href="/DesarrolloSoftware/Equipos/altaEquipo.php">Equipos de laboratorio</a>';
+                echo '<a class="dropdown-item" href="/DesarrolloSoftware/Clientes/visualizarCliente.php">Clientes</a>';
               }
             ?>
           
