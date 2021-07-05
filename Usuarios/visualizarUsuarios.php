@@ -30,6 +30,7 @@
             <table class='table table-striped'>
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Usuario</th>
                         <th>Rol</th>
                     </tr>
@@ -39,6 +40,7 @@
                 if (mysqli_num_rows($res) > 0) {
                     while ($equipos = mysqli_fetch_assoc($res)) {
                         echo "<tr>";
+                        echo "<td>" . $equipos['ID_usuario'] . "</td>";
                         echo "<td>" . $equipos['Usuario'] . "</td>";
                         echo "<td>" . $equipos['Rol'] . "</td>";
                         echo "</tr>";
