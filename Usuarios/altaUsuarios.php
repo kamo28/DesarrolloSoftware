@@ -67,10 +67,15 @@
             <input type="text" name="contraseña" class="form-control" value="<?php echo $contraseña;?>">
             <span class="error">* <?php echo $contraseñaErr;?></span>
         </div>
-
+        
         Rol:
         <div class="form-group">
-            <input type="text" name="rol" class="form-control" value="<?php echo $rol;?>">
+            <select class="form-select" name="rol" aria-label="Default select example">
+              <option selected>--Seleccionar rol--</option>
+              <option value="Admin">Administrador</option>
+              <option value="Lab">Laboratorista</option>
+              <option value="Almacen">Almacen</option>
+            </select>
             <span class="error">* <?php echo $rolErr;?></span>
         </div>
 
