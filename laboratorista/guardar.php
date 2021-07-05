@@ -42,7 +42,7 @@ $insertar3="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','olor'
 $insertar4="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','sabor','$sabor','');";
 //pruebas
 $insertar5="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','absorcion de agua','$absorcion','%');";
-$insertar6="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','tiempo de desarrollo','$absorcion','minutos');";
+$insertar6="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','tiempo de desarrollo','$tiempo','minutos');";
 $insertar7="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','estabilidad','$estabilidad','minutos');";
 $insertar8="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','aflojamiento','$aflojamiento','UF');";
 $insertar9="INSERT INTO resultados VALUES ($solicitud,$lote,'$inspeccion','quality number','$quality','');";
